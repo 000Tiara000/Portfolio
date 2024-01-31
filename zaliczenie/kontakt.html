@@ -1,0 +1,198 @@
+<html lang="pl">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+        <title>Adriana Mielke- Portfolio</title>
+    
+        <style>
+            #formularz
+            {
+                width: 1000px;
+                background-color: #00a2e8;
+                margin-left: auto;
+                margin-right: auto;
+                height: 500px;
+                margin-top: 50px;
+                border-radius: 20px;
+                
+            }
+            #wiad
+            {
+                background-color: #00a2e8;
+                float: left;
+                width: 500px;
+                height: 500px;
+                margin-top: 50px;
+                border-bottom-right-radius: 20px;
+                color:white;
+                text-align: center;
+                
+                
+            }
+            #dan
+            {   
+                text-align: center;
+                background-color: #00a2e8;
+                float: left;
+                width: 500px;
+                height: 500px;
+                margin-top: 50px;
+                border-bottom-left-radius: 20px;
+                color:white;   
+                font-size: 30px;
+                line-height: 480%; 
+            }
+            input
+            {
+                height: 45px;
+                width: 220px;
+                font-size: 20px;
+            }
+            footer
+            {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+            }
+            textarea
+            {
+                width: 400px;
+                height: 450px;
+                font-size: 25px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            button
+            {   transition: all .2s;
+                background-color: #ff7f27;
+                color: white;   
+                width: 220px;
+                height: 45px;
+                position: relative;
+                left: 137px;
+            }
+            button:hover
+            {
+                
+                background-color: #00a2e8;
+            }
+            @media only screen and (max-width: 1024px) 
+            {
+                #menu{height: 60px;}
+                .opcja{height: 100%;}
+                #formularz{width: 500px;}
+                #dan{clear: both;width: 500px;border-bottom-left-radius:0px ;}
+                #wiad{clear: both;width: 500px;margin-top: 0;border-bottom-left-radius:20px ;margin-bottom: 40px;}
+                footer{position: relative;}
+
+            }
+            @media only screen and (max-width: 550px) 
+            {
+                #menu{height: 40px;}
+                .opcja{height: 100%;}
+                #formularz{width: 300px;}
+                #dan{clear: both;width: 300px;border-bottom-left-radius:0px ;font-size: 12px;height: 250px;text-align: left;}
+                #wiad{clear: both;width: 300px;margin-top: 0;border-bottom-left-radius:20px ;margin-bottom: 40px;font-size: 12px;height: 350px;}
+                footer{position: relative;}
+                textarea
+                {
+                    width: 250px;
+                    height: 250px;
+                }
+                input
+                {
+                    width:150px ;
+                    height: 40px;
+                    margin-left: -50px;
+                }
+                button
+                {
+                    margin-left: -110px;
+                }
+            }
+        </style>
+
+        <script type="text/javascript">
+            function sendEmail() {
+            var name = document.getElementById('name').value;
+            var forname = document.getElementById('forname').value;
+            var email = document.getElementById('email').value;
+            var message = document.getElementById('message').value;
+            var attachment = document.getElementById('attachment').files[0]; 
+            
+            var endpoint = 'url-do-twojego-endpointu';
+
+            
+            var formData = new FormData();
+            formData.append('name', name);
+            formData.append('forname', forname);
+            formData.append('email', email);
+            formData.append('message', message);
+           
+
+            
+            fetch(endpoint, {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => response.json())
+            .then(data => {
+                
+                console.log('Odpowiedź z serwera:', data);
+
+                alert('Wiadomość została wysłana!');
+            })
+            .catch((error) => {
+                console.error('Błąd podczas wysyłki wiadomości:', error);
+            });
+        }
+         </script>
+    </head>
+
+    <body>
+        
+        <div id='menu'>
+            
+            <a href='index.html'><div class="opcja">START</div></a>
+            <a href='doswiadczenie.html' ><div class="opcja"style="line-height: 150%;"><span>Doświadczenie i<br> edukacja</span></div></a>
+            <a href='projekty.html'> <div class="opcja">Projekty</div></a>
+            <a href='cennik.html'><div class="opcja">Cennik</div></a>
+            <a href='kontakt.html'> <div class="opcja" style="border-right-width: 0;">Kontakt</div></a>
+            
+          </div>
+          <div style="clear: both;"></div>
+          <div id="formularz">
+
+            <form id="contactForm">
+                <div id="dan">
+                <label for="name">Imię:</label>
+                <input type="text" id="name" name="name" required style="position: relative; left: 92px;"><br>
+                <label for="name">Nazwisko:</label>
+                <input type="text" id="name" name="forname" required style="position: relative; left: 57px;"><br>
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" style="position: relative; left: 77px;" required><br>
+        
+                
+        
+                <a href="mailto:amielke@edu.cdv.pl"><button type="button" onclick="sendEmail()">Wyślij</button></a>
+            </div>
+                <div id="wiad"><label for="message" style="font-size: 35px;">Wiadomość:</label><br>
+                <textarea id="message" name="message" rows="4" required></textarea><br>
+            </div>
+            </form>
+        
+          </div>
+          <div style="clear: both;"></div>
+    
+          <footer>
+
+            <div id="dane">
+                made by Adriana Mielke &copy;
+                
+            </div>
+      
+        </footer>
+</body>
+</html>

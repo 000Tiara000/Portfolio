@@ -1,0 +1,182 @@
+<html lang="pl">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+        <title>Adriana Mielke- Portfolio</title>
+    
+
+
+        <script type="text/javascript">
+             let slideIndex = 1;
+             n=1;
+                showSlides(slideIndex);
+
+                function plusSlides(n) {
+                showSlides(slideIndex += n);
+                }
+
+                function currentSlide(n) {
+                showSlides(slideIndex = n);
+                }
+
+                function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("dot");
+                if (n > slides.length) {slideIndex = 1}    
+                if (n < 1) {slideIndex = slides.length}
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";  
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex-1].style.display = "block";  
+                dots[slideIndex-1].className += " active";
+                }
+        </script>
+    </head>
+
+    <body onload="showSlides(1)">
+
+        
+        <div id='menu'>
+            
+            <a href='index.html'><div class="opcja">START</div></a>
+            <a href='doswiadczenie.html' ><div class="opcja"style="line-height: 150%;"><span>Doświadczenie i<br> edukacja</span></div></a>
+            <a href='projekty.html'> <div class="opcja">Projekty</div></a>
+            <a href='cennik.html'><div class="opcja">Cennik</div></a>
+            <a href='kontakt.html'> <div class="opcja" style="border-right-width: 0;">Kontakt</div></a>
+            
+          </div>
+            <div style="clear: both;"></div>
+          <div id="info1">
+
+            <div id="text1">
+                Od dziecka pasjonuje mnie technologia, stąd też zdecydowałam się by rozpocząć edukację w kierunku informatyki. Moim głównym celem zawodowym jest nabieranie doświadczenia by zajmować się zarządzaniem projektami z branży IT. Postawiłam już pierwsze kroki w zarządzaniu zespołem gdy w technikum informatycznym byłam zastępcą przewodniczącego szkoły. Na tym stanowisku zajmowałam się rekrutacją, organizacją wydarzeń oraz promowaniem szkoły.
+            </div>
+
+            <div id="foto">
+                <img id="ada" src="main/cv.png" height="250" width="250" alt="Adriana Mielke">
+            </div>
+            <div style="clear: both;"></div>
+          </div>
+
+          <div id="info2">
+            
+            <div class="slideshow-container">
+
+                <div class="mySlides fade">
+                  <div class="numbertext" ><b>1 / 5</b></div>
+                  <img src="main/media1.png" style="width:100%; border-radius: 20px;" >
+                  <div class="text"><b>Pomoc w dziale helpdesk</b></div>
+                </div>
+                
+                <div class="mySlides fade">
+                  <div class="numbertext" ><b>2 / 5</b></div>
+                  <img src="main/straz.png" style="width:100%">
+                  <div class="text"><b>Asystent kwatermistrza</b></div>
+                </div>
+                
+                <div class="mySlides fade">
+                  <div class="numbertext" ><b>3 / 5</b></div>
+                  <img src="main/willisch.png" style="width:100%; border-radius: 20px;">
+                  <div class="text"><b style="color: black;">Sprzedawca</b></div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext"><b>4 / 5</b></div>
+                    <img src="main/media2.png" style="width:100%; border-radius: 20px;">
+                    <div class="text"><b>Młodszy konsultant Contact Center</b></div>
+                  </div>
+                
+                  <div class="mySlides fade">
+                    <div class="numbertext"><b>5 / 5</b></div>
+                    <img src="main/media3.png" style="width:100%; border-radius: 20px;">
+                    <div class="text"><b>Kreator opisów multimedialnych</b></div>
+                  </div>
+
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a>
+                
+                </div>
+                <br>
+                
+                <div style="text-align:center" >
+                  <span class="dot" onclick="currentSlide(1)"></span> 
+                  <span class="dot" onclick="currentSlide(2)"></span> 
+                  <span class="dot" onclick="currentSlide(3)"></span> 
+                  <span class="dot" onclick="currentSlide(4)"></span> 
+                  <span class="dot" onclick="currentSlide(5)"></span> 
+                </div>
+            
+          </div>
+
+          <div id="info3">
+            
+                <div class="szkola">
+
+                    <div class="fotaski">
+
+                        <a href="https://zsezlotow.edu.pl" target="_blank"><img class="sql" src="main/ekonom.png"width="320" alt="ekonom" style="border-top-left-radius: 20px;">
+
+                    </div>
+
+                    <div class="nazwa3" style="line-height: normal;">
+
+                        Zespół Szkół Ekonomicznych <br>im. Jana Pawła II
+
+                    </div>
+
+                </div>
+            </a>
+                <a href="https://wn.amu.edu.pl" target="_blank"><div class="szkola">
+
+                    <div class="fotaski">
+
+                        <img class="sql" src="main/UAM.png" width="320" alt="UAM">
+
+                    </div>
+
+                    <div class="nazwa3">
+
+                         Uniwersytetu im. Adama Mickiewicza
+
+                    </div>
+                
+                </div>
+                </a>
+                <a href="https://cdv.pl" target="_blank"><div class="szkola">
+
+                    <div class="fotaski">
+
+                       <img class="sql" src="main/CDV.png"width="320"  alt="  CDV" style="border-top-right-radius: 20px;">
+
+                    </div>
+
+                    <div class="nazwa3">
+
+                        Collegium Da Vinci
+
+                    </div>
+                    </div>
+                    </a>
+
+                </div>
+                <div style="clear: both;"></div>
+          </div>
+    
+
+
+    <footer>
+
+        <div id="dane">
+            made by Adriana Mielke &copy;
+            
+        </div>
+
+    </footer>
+</body>
+</html>

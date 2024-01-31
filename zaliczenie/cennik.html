@@ -1,0 +1,350 @@
+<html lang="pl">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+        <title>Adriana Mielke- Portfolio</title>
+    
+        <style>
+          #hours_komponowanie
+          {
+            position: relative;
+            left:101px
+          }
+          #hours_tworzenieHtmlCssJs
+          {
+            position: relative;
+            left:1px
+          }
+          #hours_tworzenieHtmlCssPhp
+          {
+            position: relative;
+            left:52px
+          }
+          #hours_testowanieSeo
+          {
+            position: relative;
+            left:91px
+          }
+          #hours_copywriting
+          {
+            position: relative;
+            left:252px
+          }
+          #hours_tworzenieHtmlCss
+          {
+            position: relative;
+            left:4px
+          }
+          #cennik
+          {
+            
+            width: 1000px;
+            height: 50px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #ff7f27;
+            color:white;
+            margin-top: 50px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+          }
+          #calculatorForm
+          {
+            margin-top: 10px;
+            width: 800px;
+            float: left;
+            background-color: #ff7f27;
+            height: 180px;
+            border-bottom-left-radius: 20px;
+            
+          }
+          #kwota
+          {
+            margin-top: 10px;
+            text-align: center;
+            height: 180px;
+            width: 200px;
+            float: left;
+            background-color: #ff7f27;
+            border-bottom-right-radius: 20px;
+          }
+          .sp
+          {
+            font-size:30px;
+            font-weight:bold;
+            text-align: center;
+            
+          }
+          button
+          {
+            transition: all .2s;
+            font-size: 20px;
+            background-color: #00a2e8;
+            color:white;
+            margin-left: 465px;
+            margin-top: 10px;
+          }
+          button:hover
+          {
+            background-color: white;
+            color: #00a2e8;
+          }
+          #ad
+          {
+            background-color: #00a2e8;
+            width: 1000px;
+            margin-top: 50px;
+            margin-left: auto;
+            margin-right: auto;
+            color: white;
+            text-align: right;
+            height: 50px;
+            line-height: 320%;
+            border-radius: 20px;
+            padding-right: 15px;
+          }
+          a
+          {
+            transition: all .2s;
+            text-decoration:underline;
+            color:white;
+          }
+          footer
+          {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+          }
+          a:hover
+          {
+            color:#ff7f27;
+          }
+          @media only screen and (max-width: 1024px) 
+          {
+            .opcja
+            {
+              height: 100%;
+            }
+            #menu
+            {
+              height:60px;
+            }
+            #cennik
+            {
+              width: 520px;
+              
+            }
+            #ad
+            {
+              width: 520px;
+              height: 50px;
+              margin-top: 600px;
+              margin-bottom: 40px;
+              font-size: 12px;
+              text-align: center;
+            }
+            footer
+            {
+              position: relative;
+            }
+            #calculatorform
+            {
+
+              width: 520px;
+              height: 400px;
+              clear: both;
+              margin-bottom: 0;
+              border-bottom-left-radius: 0;
+            }
+            #kwota
+            {
+              width: 520px;
+              clear: both;
+              margin-top: 0;
+              border-bottom-left-radius: 20px;
+            }
+            .sp
+            {
+              font-size: 20px;
+            }
+            #hours_copywriting
+            {
+
+              left: 0px;
+            }
+            button
+            {
+              position: relative;
+              left: -300px;
+            }
+          }
+          @media only screen and (max-width: 550px) 
+          {
+            .opcja
+            {
+              height: 100%;
+            }
+            #menu
+            {
+              height:60px;
+            }
+            #cennik
+            {
+              width: 400px;
+              
+            }
+            #ad
+            {
+              width: 400px;
+              height: 50px;
+              margin-top: 600px;
+              margin-bottom: 40px;
+              font-size: 10px;
+              text-align: center;
+              line-height: 180%;
+            }
+            footer
+            {
+              position: relative;
+            }
+            #calculatorform
+            {
+
+              width: 400px;
+              height: 400px;
+              clear: both;
+              margin-bottom: 0;
+              border-bottom-left-radius: 0;
+            }
+            #kwota
+            {
+              width: 400px;
+              clear: both;
+              margin-top: 0;
+              border-bottom-left-radius: 20px;
+            }
+            .sp
+            {
+              font-size: 20px;
+            }
+            #hours_copywriting
+            {
+
+              left: 0px;
+            }
+            button
+            {
+              position: relative;
+              left: -300px;
+            }
+          }
+          
+        </style>
+
+        <script type="text/javascript">
+            const hourlyRates = {
+                komponowanie: 45.50,
+                tworzenieHtmlCssJs: 80.60,
+                tworzenieHtmlCssPhp: 90.60,
+                testowanieSeo: 70.20,
+                copywriting: 90,
+                tworzenieHtmlCss: 50.6,
+            };
+
+            function calculate() {
+                let totalAmount = 0;
+                let atLeastOneChecked = false; 
+
+                Object.keys(hourlyRates).forEach(service => {
+                    const checkbox = document.getElementById(service);
+                    const hoursInput = document.getElementById(`hours_${service}`);
+                    if (checkbox && checkbox.checked && hoursInput) {
+                        const hours = parseFloat(hoursInput.value);
+                        if (!isNaN(hours) && hours > 0) {
+                            totalAmount += hourlyRates[service] * hours;
+                            atLeastOneChecked = true;
+                        }
+                    }
+                });
+
+                if (!atLeastOneChecked) {
+                    alert("Proszę zaznaczyć chociaż jedną opcję");
+                    return;
+                }
+
+                document.getElementById('totalAmount').innerText = totalAmount.toFixed(2);
+            }
+        </script>
+
+    </head>
+
+    <body>
+        
+      <div id='menu'>
+            
+        <a href='index.html'><div class="opcja">START</div></a>
+        <a href='doswiadczenie.html' ><div class="opcja"style="line-height: 150%;"><span>Doświadczenie i<br> edukacja</span></div></a>
+        <a href='projekty.html'> <div class="opcja">Projekty</div></a>
+        <a href='cennik.html'><div class="opcja">Cennik</div></a>
+        <a href='kontakt.html'> <div class="opcja" style="border-right-width: 0;">Kontakt</div></a>
+        
+      </div>
+          <div style="clear: both;"></div>
+          
+
+          <div id="cennik">
+            <div class="sp">Kalkulator Stawki Godzinowej</div>
+            <form id="calculatorForm">
+                <label for="komponowanie">
+                  <input type="checkbox" id="komponowanie" name="service" value="komponowanie"> Komponowanie stron w Figmie 45,50 zł/h
+                  <input type="number" id="hours_komponowanie" name="hours_komponowanie" min="0" placeholder="Liczba godzin"> 
+                </label>
+                <br>
+                <label for="tworzenieHtmlCss">
+                  <input type="checkbox" id="tworzenieHtmlCss" name="service" value="tworzenieHtmlCss"> Tworzenie stron w HTML i CSS bez skryptu 50,60 zł/h
+                  <input type="number" id="hours_tworzenieHtmlCss" name="hours_tworzenieHtmlCss" min="0" placeholder="Liczba godzin">
+                </label>
+                <br>
+                <label for="tworzenieHtmlCssJs">
+                  <input type="checkbox" id="tworzenieHtmlCssJs" name="service" value="tworzenieHtmlCssJs"> Tworzenie stron w HTML i CSS z JavaScript 80,60 zł/h
+                  <input type="number" id="hours_tworzenieHtmlCssJs" name="hours_tworzenieHtmlCssJs" min="0" placeholder="Liczba godzin">
+                  
+                </label>
+                
+                <br>
+                <label for="tworzenieHtmlCssPhp">
+                  <input type="checkbox" id="tworzenieHtmlCssPhp" name="service" value="tworzenieHtmlCssPhp"> Tworzenie stron w HTML i CSS z PHP 90,60 zł/h
+                  <input type="number" id="hours_tworzenieHtmlCssPhp" name="hours_tworzenieHtmlCssPhp" min="0" placeholder="Liczba godzin">
+                  
+                </label>
+              <br>
+                <label for="testowanieSeo">
+                  <input type="checkbox" id="testowanieSeo" name="service" value="testowanieSeo"> Testowanie strony i analiza SEO 70,20 zł/h
+                  <input type="number" id="hours_testowanieSeo" name="hours_testowanieSeo" min="0" placeholder="Liczba godzin"><br>
+                </label>
+              
+                <label for="copywriting">
+                  <input type="checkbox" id="copywriting" name="service" value="copywriting"> Copywriting 90,00 zł/h
+                  <input type="number" id="hours_copywriting" name="hours_copywriting" min="0" placeholder="Liczba godzin"><br>
+                </label>
+              
+                <button type="button" onclick="calculate()">Przelicz</button>
+              </form>
+              <div id="kwota">
+              <h2>Łączna kwota: <span id="totalAmount">0</span> PLN</h2>
+            </div>
+          </div>
+          <div id="ad" style="clear: both;"><p>Spodobała Ci się oferta? Zapraszamy do kontaktu poprzez <a href="kontakt.html">formularz kontaktowy</a></p></div>
+    
+    <footer>
+
+      <div id="dane">
+          made by Adriana Mielke &copy;
+          
+      </div>
+
+  </footer>
+</body>
+</html>
